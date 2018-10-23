@@ -1,0 +1,20 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+
+<table>
+  <tr *ngFor="let value of sampleValues">
+    <td>{{value.id}}</td>
+    <td>{{value.value}}</td>
+  </tr>
+</table>
+<pagination [dataUrl]="dataUrl" 
+[httpRequestType]="httpRequestType"
+[totalRecords]="totalRecords"
+[pageSize]="pageSize"
+[isRefreshCurrentPage]="isRefreshCurrentPage"
+[filterParams]="filterParams"
+(result)="getPaginationResults($event)"></pagination>
