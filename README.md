@@ -2,26 +2,22 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.3.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Disclaimer
 
-## Code scaffolding
+This is a demonstration of how server side pagination can be implemented through Angular. The code is not a full fledged plug n play component. Some modifications are required suiting your project server side architecture.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+# Description
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+The code is an implementation of server side pagination using Angular v6 and EntityFramework at the back end. It accepts several parameters (detailed below) and returns the search results in json format which can be further customized for display.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Parameters
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+ 1) dataUrl - endpoint URL for fetching data
+ 2) httpRequestType - GET/POST/PUT/DELETE
+ 3) totalRecords - total number of records for determining number of pages
+ 4) pageSize - number of records per page
+ 5) isRefreshCurrentPage - flag for refreshing current page
+ 6) filterParams - parameters for filtering the values at server side. Eg. { ParameterName : IsActive, Parameter Value : true }
