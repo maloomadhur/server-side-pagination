@@ -1,4 +1,4 @@
-﻿import { Component, Input, Output, OnInit, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { PaginationFilterModel } from './pagination-filter-model';
 import { HttpClient } from '@angular/common/http';
 import { HttpRequestType } from './http-request-types';
@@ -56,18 +56,17 @@ export class PaginationComponent implements OnInit, OnChanges {
    * @param params
    */
   getResultData(dataUrl: string, params: PaginationFilterModel[]): void {
-    if (this.httpRequestType === HttpRequestType.Get) {
-      //this.http.get(dataUrl).pipe(map(res => this.result.emit(res)));
+    if (this.httpRequestType === HttpRequestType.Get) {      
       this.http.get(dataUrl).pipe(map(res => res)).subscribe(res =>{this.result.emit(res) })
     }
     else if (this.httpRequestType === HttpRequestType.Post) {
-      this.http.post(dataUrl, params).pipe(map(res => this.result.emit(res)));
+      this.http.post(dataUrl, params).pipe(map(res => res)).subscribe(res =>{this.result.emit(res) })
     }
     else if (this.httpRequestType === HttpRequestType.Put) {
-      this.http.put(dataUrl, params).pipe(map(res => this.result.emit(res)));
+      this.http.put(dataUrl, params).pipe(map(res => res)).subscribe(res =>{this.result.emit(res) })
     }
     else if (this.httpRequestType === HttpRequestType.Delete) {
-      this.http.delete(dataUrl).pipe(map(res => this.result.emit(res)));
+      this.http.delete(dataUrl).pipe(map(res => res)).subscribe(res =>{this.result.emit(res) })
     }
     else {
       //bad request indication
